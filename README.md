@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hormi Suelo Landing Page
 
-## Getting Started
+Esta es la landing page para Hormi Suelo, construida con Next.js, Sanity.io y Vercel.
 
-First, run the development server:
+## Tecnologías Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Frontend**: Next.js con TypeScript y Tailwind CSS
+- **CMS**: Sanity.io para gestión de contenido
+- **Despliegue**: Vercel con Serverless Functions
+- **Colores**: Negro (#000000) y Amarillo (#FFD700)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Configuración Inicial
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Instala las dependencias**:
+   ```bash
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Configura Sanity.io**:
+   - Ve a [sanity.io](https://sanity.io) y crea una cuenta.
+   - Crea un nuevo proyecto llamado "Hormi Suelo CMS".
+   - Obtén el Project ID y Dataset (production).
+   - Actualiza el archivo `.env.local`:
+     ```
+     NEXT_PUBLIC_SANITY_PROJECT_ID=tu_project_id_aqui
+     NEXT_PUBLIC_SANITY_DATASET=production
+     ```
 
-## Learn More
+3. **Ejecuta el servidor de desarrollo**:
+   ```bash
+   npm run dev
+   ```
+   Abre [http://localhost:3001](http://localhost:3001) en tu navegador.
 
-To learn more about Next.js, take a look at the following resources:
+4. **Accede al CMS**:
+   ```bash
+   npm run sanity
+   ```
+   Esto abrirá Sanity Studio en tu navegador para gestionar el contenido.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Estructura de la Página
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Hero**: Video/imagen de fondo con título, subtítulo y botón CTA.
+- **Factores Clave**: Tres columnas destacando experiencia, obras y socios.
+- **Galería de Proyectos**: Muestra proyectos destacados.
+- **Marcas Aliadas**: Logos de proveedores con enlaces.
+- **Formulario de Contacto**: Envío de consultas vía Serverless Function.
+- **Footer**: Información de contacto.
 
-## Deploy on Vercel
+## Gestión de Contenido
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+En Sanity Studio puedes:
+- Agregar/editar proyectos con imágenes y descripciones.
+- Gestionar logos de marcas aliadas.
+- Actualizar textos del sitio (títulos, descripciones).
+- Subir videos/imágenes para el hero.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Despliegue en Vercel
+
+1. **Sube el código a GitHub**:
+   - Crea un repositorio en GitHub.
+   - Sube todo el código del proyecto.
+
+2. **Conecta con Vercel**:
+   - Ve a [vercel.com](https://vercel.com) y crea una cuenta.
+   - Importa tu repositorio de GitHub.
+   - Configura las variables de entorno en Vercel (igual que en .env.local).
+
+3. **Deploy**:
+   - Vercel detectará automáticamente Next.js y lo desplegará.
+   - La URL de producción se generará automáticamente.
+
+## Configuración del Formulario de Contacto
+
+El formulario envía emails. Para producción, configura un servicio de email como:
+- SendGrid
+- Mailgun
+- O usa el email de Hormi Suelo
+
+Actualiza la función en `src/app/api/contact/route.ts` con tus credenciales.
+
+## Optimizaciones Incluidas
+
+- Optimización automática de imágenes con Next.js Image.
+- SEO con metadatos apropiados.
+- Diseño responsive para móviles.
+- CDN global con Vercel.
+
+## Próximos Pasos
+
+1. Agregar contenido real en Sanity.
+2. Subir assets (logos, imágenes, videos) a la carpeta `public/`.
+3. Configurar envío real de emails.
+4. Probar en diferentes dispositivos.
+5. Desplegar y compartir la URL con el cliente.
+
+## Soporte
+
+Si necesitas ayuda, revisa la documentación de:
+- [Next.js](https://nextjs.org/docs)
+- [Sanity.io](https://www.sanity.io/docs)
+- [Vercel](https://vercel.com/docs)
