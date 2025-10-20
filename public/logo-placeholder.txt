@@ -1,0 +1,7 @@
+Este archivo debe ser reemplazado por tu logo PNG real.
+
+Instrucciones:
+1. Reemplaza este archivo con tu imagen logo.png
+2. Asegúrate de que sea un PNG con fondo transparente
+3. Dimensiones recomendadas: altura 48px, anchura proporcional
+4. El componente Logo ya está configurado para mostrar esta imagen

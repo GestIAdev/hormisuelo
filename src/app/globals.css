@@ -1,0 +1,449 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --hormi-yellow: #FFC300;
+  --hormi-dark-yellow: #E6B800;
+  --hormi-black: #0a0a0a;
+  --hormi-white: #FFFFFF;
+  --hormi-gray: #e8e8e8;
+  --lime-electric: #FFD700;
+  --lime-soft: #FFF8DC;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #f7f57f;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* --- INICIO PROTOCOLO DE CORTE DIAGONAL --- */
+@layer utilities {
+  .clip-path-diagonal {
+    clip-path: polygon(-25% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+/* --- FIN PROTOCOLO DE CORTE DIAGONAL --- */
+
+/* --- INICIO PROTOCOLO BRILLO AURORA --- */
+@layer utilities {
+  .card-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(255, 195, 0, 0.15) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: opacity 0.5s ease;
+    opacity: 0.5; /* Opacidad inicial */
+  }
+
+  .card-glow:hover::before {
+    opacity: 1; /* Aumentamos la opacidad del brillo al pasar el mouse */
+  }
+}
+/* --- FIN PROTOCOLO BRILLO AURORA --- */
+
+/* --- INICIO ESTILOS DE TEXTO ARTÍSTICOS --- */
+
+/* TÍTULOS HERO CON EFECTOS DE BRILLO */
+.hero-title-glow {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 4.5rem;
+  color: var(--lime-electric);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  text-shadow: 
+    0 0 20px rgba(255, 195, 0, 0.5),
+    0 0 40px rgba(255, 195, 0, 0.3),
+    3px 3px 6px rgba(0, 0, 0, 0.8);
+  position: relative;
+  z-index: 2;
+  animation: glowTitle 4.5s ease-in-out infinite;
+}
+
+@keyframes glowTitle {
+  0%, 100% { 
+    text-shadow: 0 0 20px rgba(255, 195, 0, 0.5), 0 0 40px rgba(255, 195, 0, 0.3), 3px 3px 6px rgba(0, 0, 0, 0.8); 
+  }
+  50% { 
+    text-shadow: 0 0 30px rgba(255, 195, 0, 0.7), 0 0 60px rgba(255, 195, 0, 0.5), 3px 3px 6px rgba(0, 0, 0, 0.8); 
+  }
+}
+
+/* PÁRRAFOS HERO MEJORADOS */
+.hero-description {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--lime-soft);
+  text-shadow: 
+    2px 2px 8px rgba(0, 0, 0, 0.95),
+    0 0 15px rgba(0, 0, 0, 0.8),
+    0 0 25px rgba(255, 195, 0, 0.3);
+  line-height: 1.9;
+  letter-spacing: 0.3px;
+  margin-bottom: 2.5rem;
+}
+
+/* LÍNEA DECORATIVA BAJO TÍTULOS */
+.decorative-line {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--hormi-yellow) 20%, 
+    var(--lime-electric) 50%, 
+    var(--hormi-yellow) 80%, 
+    transparent 100%);
+  border-radius: 10px;
+  animation: lineGlow 3s ease-in-out infinite;
+}
+
+@keyframes lineGlow {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1.2);
+    box-shadow: 0 0 20px rgba(255, 195, 0, 0.6);
+  }
+}
+
+/* TÍTULOS DE SECCIONES CON LÍNEA */
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: var(--hormi-black);
+  font-size: 2rem;
+  border-bottom: none;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--hormi-black) 0%, transparent 100%);
+  border-radius: 2px;
+}
+
+/* BOTONES MEJORADOS */
+.btn-professional {
+  background: linear-gradient(135deg, var(--hormi-black) 0%, var(--hormi-dark-yellow) 100%);
+  border: none;
+  color: var(--hormi-white);
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-professional::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-professional:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-professional:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  color: var(--lime-electric);
+}
+
+.btn-professional:active {
+  transform: translateY(0);
+}
+
+/* FORMULARIOS MEJORADOS */
+.form-control {
+  background: var(--hormi-white);
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  color: var(--hormi-black);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.form-control::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.form-control:focus {
+  background: var(--hormi-white);
+  border-color: var(--hormi-yellow);
+  box-shadow: 0 0 0 0.2rem rgba(255, 195, 0, 0.15);
+  outline: none;
+}
+
+/* TEXTOS Y PÁRRAFOS GENERALES */
+.module p {
+  line-height: 1.7;
+  font-size: 1.05rem;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* ANIMACIONES DE ENTRADA */
+.module {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* PÁRRAFOS DE CONTENIDO CON MÁS VIDA */
+.section-content p {
+  color: var(--hormi-white);
+  text-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 0.8),
+    0 0 10px rgba(255, 195, 0, 0.1);
+  line-height: 1.8;
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.section-content p:hover {
+  text-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 0.8),
+    0 0 15px rgba(255, 195, 0, 0.2);
+  color: var(--lime-soft);
+}
+
+/* TÍTULOS DE SECCIONES CON MÁS BRILLO */
+.section-title-glow {
+  color: var(--lime-electric);
+  text-shadow: 
+    0 0 15px rgba(255, 195, 0, 0.6),
+    0 0 30px rgba(255, 195, 0, 0.4),
+    2px 2px 4px rgba(0, 0, 0, 0.9);
+  animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+  0%, 100% { 
+    text-shadow: 0 0 15px rgba(255, 195, 0, 0.6), 0 0 30px rgba(255, 195, 0, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.9); 
+  }
+  50% { 
+    text-shadow: 0 0 20px rgba(255, 195, 0, 0.8), 0 0 40px rgba(255, 195, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.9); 
+  }
+}
+
+/* ENLACES DEL NAVBAR CON MÁS VIDA */
+.nav-link-glow {
+  color: var(--hormi-white);
+  text-shadow: 0 0 5px rgba(255, 195, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.nav-link-glow:hover,
+.nav-link-glow.active {
+  color: var(--lime-electric);
+  text-shadow: 
+    0 0 10px rgba(255, 195, 0, 0.8),
+    0 0 20px rgba(255, 195, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+/* TEXTO DE CARDS CON EFECTOS */
+.card-content p {
+  color: var(--hormi-gray);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease;
+}
+
+.card-content p:hover {
+  color: var(--hormi-white);
+  text-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 0.5),
+    0 0 8px rgba(255, 195, 0, 0.3);
+}
+
+/* ANIMACIÓN DE TRANSICIÓN PARA SECCIONES */
+.section-fade-in {
+  animation: fadeInSection 0.6s ease-out;
+}
+
+@keyframes fadeInSection {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* TRANSICIÓN PARA CAMBIO DE FONDOS */
+.background-transition {
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* SCROLLBAR PERSONALIZADO CON ESTILO PUNK */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 10, 10, 0.8);
+  border-radius: 7px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--hormi-yellow) 0%, var(--hormi-dark-yellow) 100%);
+  border-radius: 7px;
+  border: 2px solid rgba(10, 10, 10, 0.8);
+  box-shadow: 0 0 10px rgba(255, 195, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--lime-electric) 0%, var(--hormi-yellow) 100%);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+  transform: scale(1.1);
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(10, 10, 10, 0.8);
+}
+
+/* Para Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--hormi-yellow) rgba(10, 10, 10, 0.8);
+}
+
+/* PANEL DINÁMICO DE HERO CON EFECTOS ARTÍSTICOS */
+.hero-panel-dynamic {
+  background: transparent;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: none;
+  
+  box-shadow: 
+    inset 0 0 1px rgba(255, 255, 255, 0.2),
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(255, 195, 0, 0.15),
+    inset 0 0 40px rgba(255, 195, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+  animation: floatPanel 12s ease-in-out infinite, pulseGlowHero 8s ease-in-out infinite;
+}
+
+/* Capa de fondo atmosférico SOLO para el panel de texto */
+.hero-panel-dynamic::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(
+      ellipse 100% 80% at 50% 20%, 
+      rgba(199, 172, 17, 0.171), 
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 120% 60% at 20% 80%, 
+      rgba(192, 164, 6, 0.233), 
+      transparent 60%
+    ),
+    #121212;
+  z-index: -1;
+  animation: breatheGlow 8s ease-in-out infinite;
+}
+
+/* Gradiente rotativo SOLO para el panel de texto */
+.hero-panel-dynamic::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 195, 0, 0.12) 25%,
+    rgba(255, 215, 0, 0.15) 50%,
+    rgba(255, 195, 0, 0.12) 75%,
+    transparent 100%
+  );
+  animation: rotateGradient 25s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes breatheGlow {
+  0%, 100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulseGlowHero {
+  0%, 100% {
+    box-shadow: 
+      inset 0 0 1px rgba(255, 255, 255, 0.2),
+      0 20px 60px rgba(0, 0, 0, 0.5),
+      0 0 40px rgba(255, 195, 0, 0.15),
+      inset 0 0 40px rgba(255, 195, 0, 0.08);
+  }
+  50% {
+    box-shadow: 
+      inset 0 0 1px rgba(255, 255, 255, 0.3),
+      0 20px 60px rgba(0, 0, 0, 0.5),
+      0 0 60px rgba(31, 25, 8, 0.158),
+      inset 0 0 50px rgba(255, 195, 0, 0.12);
+  }
+}
+
+@keyframes rotateGradient {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes floatPanel {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
