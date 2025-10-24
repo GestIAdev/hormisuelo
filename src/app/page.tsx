@@ -69,7 +69,7 @@ export default function Home() {
         <div className="absolute inset-0 z-[-1] background-transition">
           <div 
             className="w-full h-full bg-cover bg-center" 
-            style={{ backgroundImage: `url('/dique1.jpeg')` }}
+            style={{ backgroundImage: `url('/fondocontacto.jpg')` }}
           ></div>
           {/* Overlay oscuro para que el fondo no compita con las tarjetas */}
           <div className="absolute inset-0 bg-black/20"></div>

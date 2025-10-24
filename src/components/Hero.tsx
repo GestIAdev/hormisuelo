@@ -21,12 +21,7 @@ export default function Hero() {
             <br />
             <br />
             Los productos tienen materia prima con alta calidad internacional.
-     
- 
           </p>
-          <button className="btn-professional text-xs md:text-sm md:px-6 md:py-2 px-4 py-1">
-            Descubra Nuestras Soluciones
-          </button>
         </div>
       </div>
 
