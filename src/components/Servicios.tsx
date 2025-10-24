@@ -67,18 +67,18 @@ export default function Servicios() {
   };
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center p-4 md:p-8 section-fade-in">
-      <div className="text-center mb-8">
-        <h2 className="text-4xl lg:text-5xl font-extrabold section-title-glow">
+    <div className="w-full h-full flex flex-col items-center justify-center p-3 sm:p-4 md:p-8 section-fade-in">
+      <div className="text-center mb-6 md:mb-8">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold section-title-glow">
           Nuestras Capacidades
         </h2>
-        <div className="decorative-line mx-auto mb-4"></div>
-        <p className="text-lg text-gray-200 mt-2 section-content">
+        <div className="decorative-line mx-auto mb-3 md:mb-4"></div>
+        <p className="text-sm sm:text-base md:text-lg text-gray-200 mt-2 section-content">
           Soluciones integrales para los desafíos más complejos de la ingeniería.
         </p>
       </div>
       
-      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
         {serviceData.map((data) => (
           <ServiceCard 
             key={data.category}

@@ -22,7 +22,7 @@ export default function Home() {
 
       {/* Regla 1: Si la vista es INICIO, muestra el video en el 40% izquierdo */}
       {activeView === 'INICIO' && (
-        <div className="absolute left-0 top-0 w-[40%] h-full z-[-1] background-transition">
+        <div className="absolute left-0 top-0 w-full md:w-[40%] h-full z-[-1] background-transition">
           <video autoPlay muted loop className="w-full h-full object-cover">
             <source src="/Excavadoraaerea1.mp4" type="video/mp4" />
           </video>
@@ -30,19 +30,18 @@ export default function Home() {
       )}
 
       {/* Regla 2: Si la vista es SERVICIOS, muestra la imagen a pantalla completa */}
-      {activeView === 'SERVICIOS' && (
+      {/* {activeView === 'SERVICIOS' && (
         <div className="absolute inset-0 z-[-1] background-transition">
           <div 
             className="w-full h-full bg-cover bg-center" 
             style={{ backgroundImage: `url('/fondoservicios.png')` }}
           ></div>
-          {/* Overlay oscuro para que el fondo no compita con las tarjetas */}
           <div className="absolute inset-0 bg-black/20"></div>
         </div>
-      )}
+      )} */}
 
-      {/* Regla 3: Si la vista es MARCAS ALIADAS, muestra la imagen a pantalla completa */}
-      {activeView === 'MARCAS ALIADAS' && (
+      {/* Regla 3: Si la vista es EMPRESAS PROVEEDORAS, muestra la imagen a pantalla completa */}
+      {activeView === 'EMPRESAS PROVEEDORAS' && (
         <div className="absolute inset-0 z-[-1] background-transition">
           <div 
             className="w-full h-full bg-cover bg-center" 
@@ -84,10 +83,10 @@ export default function Home() {
       <div className="relative z-10 h-full w-full flex flex-col">
         <Navbar activeView={activeView} setActiveView={setActiveView} />
 
-        <main className="flex-grow overflow-y-auto">
+        <main className="flex-grow overflow-y-auto overflow-x-hidden">
           {activeView === 'INICIO' && <Hero />}
-          {activeView === 'MARCAS ALIADAS' && <MarcasAliadas />}
-          {activeView === 'SERVICIOS' && <Servicios />}
+          {activeView === 'EMPRESAS PROVEEDORAS' && <MarcasAliadas />}
+          {/* {activeView === 'SERVICIOS' && <Servicios />} */}
           {activeView === 'PROYECTOS' && <Proyectos />}
           {activeView === 'CONTACTO' && <Contacto />}
         </main>

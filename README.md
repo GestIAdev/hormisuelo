@@ -43,7 +43,7 @@ Esta es la landing page para Hormi Suelo, construida con Next.js, Sanity.io y Ve
 - **Hero**: Video/imagen de fondo con título, subtítulo y botón CTA.
 - **Factores Clave**: Tres columnas destacando experiencia, obras y socios.
 - **Galería de Proyectos**: Muestra proyectos destacados.
-- **Marcas Aliadas**: Logos de proveedores con enlaces.
+- **Empresas Proveedoras**: Logos de proveedores con enlaces.
 - **Formulario de Contacto**: Envío de consultas vía Serverless Function.
 - **Footer**: Información de contacto.
 
@@ -51,7 +51,7 @@ Esta es la landing page para Hormi Suelo, construida con Next.js, Sanity.io y Ve
 
 En Sanity Studio puedes:
 - Agregar/editar proyectos con imágenes y descripciones.
-- Gestionar logos de marcas aliadas.
+- Gestionar logos de empresas proveedoras.
 - Actualizar textos del sitio (títulos, descripciones).
 - Subir videos/imágenes para el hero.
 
