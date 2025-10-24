@@ -210,7 +210,7 @@ export default function Contacto() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-hormi-yellow text-hormi-black px-6 md:px-8 py-2 md:py-3 rounded-lg font-bold text-sm md:text-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-hormi-yellow text-hormi-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-bold text-sm md:text-lg hover:bg-yellow-500 hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
             </button>
