@@ -25,23 +25,32 @@ export default function Contacto() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    const targetEmail = 'hormisuelo@hotmail.com';
 
     try {
-      const response = await fetch('/api/contact', {
+      const resp = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(targetEmail)}`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
-        setSubmitMessage('¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.');
+      const data = await resp.json().catch(() => ({}));
+
+      if (resp.ok && data.success !== 'false') {
+        setSubmitMessage('¡Mensaje enviado con éxito! Enviaremos una copia al correo de contacto.');
         setFormData({ name: '', email: '', phone: '', message: '' });
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Mostrar mensaje de fallo o instrucciones si FormSubmit requiere activación
+      if (data && data.message) {
+        setSubmitMessage(data.message);
       } else {
         setSubmitMessage('Error al enviar el mensaje. Por favor, inténtalo de nuevo.');
       }
     } catch (error) {
+      console.error('Error al enviar formulario a FormSubmit:', error);
       setSubmitMessage('Error al enviar el mensaje. Por favor, inténtalo de nuevo.');
     }
 
@@ -49,7 +58,7 @@ export default function Contacto() {
   };
 
   return (
-    <div className="w-full min-h-full flex flex-col items-center justify-start p-3 sm:p-4 md:p-8 section-fade-in">
+    <div className="w-full min-h-full flex flex-col items-center justify-start p-3 sm:p-4 md:p-8 section-fade-in relative">
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
 
         {/* Información de Contacto */}
@@ -84,11 +93,11 @@ export default function Contacto() {
           <div className="mb-6 md:mb-8">
             <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 flex items-center">
               <MapPinIcon className="w-5 h-5 md:w-6 md:h-6 mr-2 text-hormi-yellow" />
-              Ubicación
+                Ubicación
             </h3>
-            <p className="text-gray-300 text-sm md:text-base">
-              Mendoza, Argentina
-            </p>
+              <p className="text-gray-300 text-sm md:text-base">
+                Godoy Cruz 617, San José, Guaymallén, Mendoza, Argentina
+              </p>
           </div>
 
           {/* Redes Sociales */}
@@ -96,18 +105,32 @@ export default function Contacto() {
             <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">
               Síguenos en Redes Sociales
             </h3>
-            <div className="flex space-x-4">
-              <a href="#" className="text-xl md:text-2xl text-gray-300 hover:text-hormi-yellow transition-colors">
-                📘
+            <div className="flex space-x-4 items-center">
+              <a
+                href="https://www.facebook.com/profile.php?id=100063890807330"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                title="Facebook"
+                className="bg-[#1877F2] text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-md hover:scale-105 transition-transform"
+              >
+                {/* Facebook SVG */}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 md:w-7 md:h-7">
+                  <path d="M22 12a10 10 0 10-11.5 9.9v-7h-2.2V12h2.2V9.8c0-2.2 1.3-3.4 3.3-3.4.95 0 1.95.17 1.95.17v2.14h-1.1c-1.09 0-1.43.68-1.43 1.38V12h2.44l-.39 2.9h-2.05v7A10 10 0 0022 12z" />
+                </svg>
               </a>
-              <a href="#" className="text-xl md:text-2xl text-gray-300 hover:text-hormi-yellow transition-colors">
-                📷
-              </a>
-              <a href="#" className="text-xl md:text-2xl text-gray-300 hover:text-hormi-yellow transition-colors">
-                💼
-              </a>
-              <a href={`https://wa.me/5492616572068`} target="_blank" className="text-xl md:text-2xl text-gray-300 hover:text-hormi-yellow transition-colors">
-                💬
+              <a
+                href={`https://wa.me/5492616666865`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Contacto WhatsApp - Pagnotta Marta"
+                title="Contactar por WhatsApp - Pagnotta Marta"
+                className="bg-[#25D366] text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-transform"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-7 h-7 md:w-8 md:h-8">
+                  <path d="M20.52 3.48A11.73 11.73 0 0012.05.25 11.78 11.78 0 001.5 11.94c0 2.08.54 4.12 1.56 5.92L.15 23.85l5.25-1.37a11.75 11.75 0 005.09 1.1h.01c6.47 0 11.85-5.22 11.86-11.87a11.7 11.7 0 00-3.9-8.13zM12.05 20.47h-.01a9.05 9.05 0 01-4.6-1.25l-.33-.2-3.11.81.83-3.03-.21-.31A9.07 9.07 0 012.99 11.9c0-4.99 4.06-9.05 9.06-9.05 2.42 0 4.69.94 6.42 2.65a8.98 8.98 0 012.64 6.39c0 4.99-4.06 9.03-9.05 9.03z" />
+                  <path d="M17.02 14.23c-.29-.15-1.72-.85-1.99-.95-.27-.1-.47-.15-.67.15-.2.29-.78.95-.96 1.15-.18.2-.36.22-.66.07-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.5-1.79-1.67-2.09-.17-.3-.02-.46.12-.61.12-.12.27-.32.4-.48.13-.16.17-.27.27-.45.1-.18.05-.34-.02-.48-.07-.15-.67-1.6-.92-2.19-.24-.58-.49-.5-.67-.51-.17-.01-.36-.01-.55-.01-.19 0-.5.07-.76.34-.26.27-1 1-1 2.48 0 1.48 1.03 2.92 1.17 3.12.15.2 2.02 3.08 4.9 4.31 2.88 1.23 2.88.82 3.4.77.52-.05 1.72-.7 1.97-1.37.25-.67.25-1.25.18-1.37-.07-.12-.27-.19-.56-.34z" />
+                </svg>
               </a>
             </div>
           </div>
@@ -213,8 +236,8 @@ export default function Contacto() {
           {/* Contenedor del mapa con aspect ratio responsivo */}
           <div className="w-full rounded-lg overflow-hidden" style={{ aspectRatio: '16/9', minHeight: '300px' }}>
             <iframe
-              title="Ubicación Hormisuelo - Mendoza, Argentina"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3349.0481181635546!2d-68.85236!3d-32.88926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967bc29f8c522abd%3A0x1234567890ab!2sMendoza%2C%20Argentina!5e0!3m2!1ses!2sar!4v1234567890"
+              title="Ubicación Hormisuelo - Godoy Cruz 617, Guaymallén, Mendoza"
+              src="https://www.google.com/maps?q=Godoy+Cruz+617,+San+Jose,+Guaymall%C3%A9n,+Mendoza,+Argentina&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -225,6 +248,7 @@ export default function Contacto() {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }

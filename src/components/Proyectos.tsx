@@ -4,34 +4,31 @@ import ProjectCard from './ProjectCard';
 // Datos de ejemplo para proyectos (idealmente vendrán de Sanity CMS)
 const proyectos = [
   {
-    title: 'Túnel de Alta Montaña',
+    title: 'Túnel circular Liner Staco',
     image: '/tunel1.jpeg',
-    description: 'Proyecto de excavación y estabilización de túnel en zona de alta pendiente, utilizando técnicas avanzadas de geotecnia y control de derrumbes.'
+    
   },
   {
-    title: 'Defensa de Caída de Piedras',
+    title: 'Perilago Potrerillos',
     image: '/dique1.jpeg',
-    description: 'Sistema de contención de rocas en carreteras de montaña, implementando mallas de alta resistencia y anclajes químicos.'
   },
   {
-    title: 'Estabilización de Taludes',
-    image: '/muro1.jpeg',
-    description: 'Refuerzo estructural de taludes inestables mediante bulonaje y geotextiles, previniendo deslizamientos de tierra.'
+    title: 'Macko',
+    image: '/macko.jpeg',
+    
   },
   {
-    title: 'Pavimentación Industrial',
-    image: '/pista1.jpeg',
-    description: 'Construcción de pistas de hormigón armado para zonas industriales, con tratamientos superficiales especializados.'
+    title: 'Macko',
+    image: '/macko2.jpeg',
+    
   },
   {
-    title: 'Excavación Aérea',
+    title: 'Bodega Grupo Peñaflor',
     image: '/hormigon1.jpeg',
-    description: 'Trabajos de excavación en áreas de difícil acceso utilizando equipos especializados y técnicas de bioingeniería.'
   },
   {
-    title: 'Pulido de Superficies',
-    image: '/pulidosuelo.jpeg',
-    description: 'Tratamiento y pulido de superficies de hormigón para aplicaciones decorativas y funcionales en espacios comerciales.'
+    title: 'Bodega Grupo Peñaflor',
+    image: '/pista1.jpeg',
   },
 ];
 
@@ -48,13 +45,13 @@ export default function Proyectos() {
         </p>
       </div>
 
-      <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-fr items-stretch">
         {proyectos.map((proyecto, index) => (
           <ProjectCard
             key={index}
             title={proyecto.title}
             image={proyecto.image}
-            description={proyecto.description}
+           
           />
         ))}
       </div>
