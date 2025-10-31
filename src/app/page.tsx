@@ -67,10 +67,11 @@ export default function Home() {
       {/* Regla 5: Si la vista es CONTACTO, muestra la imagen a pantalla completa */}
       {activeView === 'CONTACTO' && (
         <div className="absolute inset-0 z-[-1] background-transition">
-          <div 
-            className="w-full h-full bg-cover bg-center" 
-            style={{ backgroundImage: `url('/fondocontacto.jpg')` }}
-          ></div>
+          <img 
+            src="/fondocontacto.jpg" 
+            className="w-full h-full object-contain" 
+            alt="Fondo de contacto"
+          />
           {/* Overlay oscuro para que el fondo no compita con las tarjetas */}
           <div className="absolute inset-0 bg-black/20"></div>
         </div>

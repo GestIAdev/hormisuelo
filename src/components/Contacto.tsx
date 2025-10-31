@@ -62,7 +62,7 @@ export default function Contacto() {
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
 
         {/* Información de Contacto */}
-        <div className="bg-black/60 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/10">
+        <div className="bg-black/30 backdrop-md rounded-2xl p-6 md:p-8 border border-white/10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold section-title-glow mb-4 md:mb-6 text-center">
             Contáctanos
           </h2>
@@ -132,12 +132,24 @@ export default function Contacto() {
                   <path d="M17.02 14.23c-.29-.15-1.72-.85-1.99-.95-.27-.1-.47-.15-.67.15-.2.29-.78.95-.96 1.15-.18.2-.36.22-.66.07-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.5-1.79-1.67-2.09-.17-.3-.02-.46.12-.61.12-.12.27-.32.4-.48.13-.16.17-.27.27-.45.1-.18.05-.34-.02-.48-.07-.15-.67-1.6-.92-2.19-.24-.58-.49-.5-.67-.51-.17-.01-.36-.01-.55-.01-.19 0-.5.07-.76.34-.26.27-1 1-1 2.48 0 1.48 1.03 2.92 1.17 3.12.15.2 2.02 3.08 4.9 4.31 2.88 1.23 2.88.82 3.4.77.52-.05 1.72-.7 1.97-1.37.25-.67.25-1.25.18-1.37-.07-.12-.27-.19-.56-.34z" />
                 </svg>
               </a>
+              <a
+                href="https://www.google.com/maps?q=Godoy+Cruz+617,+San+Jose,+Guaymallén,+Mendoza,+Argentina"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ver ubicación en Google Maps"
+                title="Ver ubicación en Google Maps"
+                className="bg-[#4285F4] text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-transform"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 md:w-7 md:h-7">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+              </a>
             </div>
           </div>
         </div>
 
         {/* Formulario de Contacto */}
-        <div className="bg-black/60 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/10">
+        <div className="bg-black/30 backdrop-md rounded-2xl p-6 md:p-8 border border-white/10">
           <h3 className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6 flex items-center">
             <EnvelopeIcon className="w-5 h-5 md:w-6 md:h-6 mr-2 text-hormi-yellow" />
             Envíanos un Mensaje
@@ -223,30 +235,6 @@ export default function Contacto() {
           </form>
         </div>
 
-      </div>
-
-      {/* Google Maps */}
-      <div className="w-full max-w-6xl mt-8 md:mt-12">
-        <div className="bg-black/60 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/10 overflow-hidden">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold section-title-glow mb-4 md:mb-6 text-center">
-            Nuestra Ubicación
-          </h2>
-          <div className="decorative-line mx-auto mb-6 md:mb-8"></div>
-          
-          {/* Contenedor del mapa con aspect ratio responsivo */}
-          <div className="w-full rounded-lg overflow-hidden" style={{ aspectRatio: '16/9', minHeight: '300px' }}>
-            <iframe
-              title="Ubicación Hormisuelo - Godoy Cruz 617, Guaymallén, Mendoza"
-              src="https://www.google.com/maps?q=Godoy+Cruz+617,+San+Jose,+Guaymall%C3%A9n,+Mendoza,+Argentina&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-        </div>
       </div>
       
     </div>
